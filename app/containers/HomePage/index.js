@@ -1,24 +1,53 @@
 /*
+ *
  * HomePage
  *
- * This is the first thing users see of our App, at the '/' route
- *
- * NOTE: while this component should technically be a stateless functional
- * component (SFC), hot reloading does not currently support SFCs. If hot
- * reloading is not a necessity for you then you can refactor it and remove
- * the linting exception.
  */
 
-import React from 'react';
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
+import { createStructuredSelector } from 'reselect';
+import { makeSelectHomePage, makeSelectContent } from './selectors';
 import messages from './messages';
 
-export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+import { logOut } from 'containers/App/actions';
+import { fetchContent } from './actions';
+
+import Header from 'components/Header';
+import Wrapper from 'components/Wrapper';
+import Content from 'components/Content';
+
+export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+  componentWillMount() {
+    if(this.props.content == 0) {
+      this.props.getContent();
+    }
+  }
+
   render() {
     return (
-      <h1>
-        <FormattedMessage {...messages.header} />
-      </h1>
+      <Wrapper>
+        <Header logout={this.props.logout}/>
+        <Content />
+      </Wrapper>
     );
   }
 }
+
+HomePage.propTypes = {
+
+};
+
+const mapStateToProps = createStructuredSelector({
+  content: makeSelectContent(),
+});
+
+function mapDispatchToProps(dispatch) {
+  return {
+    logout: () => dispatch(logOut()),
+    getContent: () => dispatch(fetchContent()),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

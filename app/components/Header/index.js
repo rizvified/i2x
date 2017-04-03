@@ -14,8 +14,8 @@ class Header extends React.Component { // eslint-disable-line react/prefer-state
   render() {
     return (
       <header className="navigation">
-        <nav className="navbar navbar-default navbar-fixed-top navbar-inverse">
-          <div className="container-fluid">
+        <nav className="navbar navbar-default navbar-fixed-top">
+          <div className="container">
 
             <div className="navbar-header">
           <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -24,26 +24,14 @@ class Header extends React.Component { // eslint-disable-line react/prefer-state
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
           </button>
-          <ul className="nav navbar-nav navbar-left">
-            <li>
-              <Link to='/' activeStyle={{
-                  color: "#fff",
-              }}>Home</Link>
-            </li>
-          </ul>
         </div>
 
     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul className="nav navbar-nav navbar-right">
         <li>
-          <Link to='/history' activeStyle={{
-              color: "#fff",
-          }}>History</Link>
-        </li>
-        <li>
-          <Link to='/admin' activeStyle={{
-              color: "#fff",
-          }}>Admin</Link>
+          <button className="btn btn-primary logoutBtn" type="button" onClick={this.props.logout}>
+            Logout
+          </button>
         </li>
       </ul>
     </div>
@@ -55,7 +43,7 @@ class Header extends React.Component { // eslint-disable-line react/prefer-state
 }
 
 Header.propTypes = {
-
+  logout: React.PropTypes.func,
 };
 
 export default Header;
