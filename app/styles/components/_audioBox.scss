@@ -1,0 +1,40 @@
+.audio_box {
+    display: block;
+    position: relative;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #e7e7e7;
+
+    .details {
+        padding: 5px;
+
+        .header {
+            display: inline-block;
+            margin-bottom: 5px;
+
+            .rating {
+                float: left;
+                font-size: 18px;
+            }
+
+            .duration {
+              font-weight: bold;
+            }
+        }
+
+        .transcript {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .date {
+        padding: 5px;
+
+        p {
+          position: relative;
+          margin: 0;
+          font-style: italic;
+        }
+    }
+}

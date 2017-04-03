@@ -10,8 +10,9 @@ const selectHomePageDomain = () => (state) => state.get('homePage');
  */
  const makeSelectContent = () => createSelector(
    selectHomePageDomain(),
-   (substate) => substate.get('content')
+   (substate) => substate.get('content').toJS()
  );
+
 
 /**
  * Default selector used by HomePage
@@ -25,5 +26,5 @@ const makeSelectHomePage = () => createSelector(
 export default makeSelectHomePage;
 export {
   selectHomePageDomain,
-  makeSelectContent
+  makeSelectContent,
 };

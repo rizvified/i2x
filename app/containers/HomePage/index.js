@@ -6,37 +6,39 @@
 
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
-import { makeSelectHomePage, makeSelectContent } from './selectors';
-import messages from './messages';
+import { makeSelectContent } from './selectors';
 
 import { logOut } from 'containers/App/actions';
 import { fetchContent } from './actions';
 
 import Header from 'components/Header';
 import Wrapper from 'components/Wrapper';
-import Content from 'components/Content';
+import AudioBox from 'components/AudioBox';
 
-export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+export class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   componentWillMount() {
-    if(this.props.content == 0) {
       this.props.getContent();
-    }
   }
 
   render() {
+    let { content } = this.props;
+
     return (
       <Wrapper>
         <Header logout={this.props.logout}/>
-        <Content />
+        {
+          content.map((details, index) => <AudioBox data={details} key={index}/>)
+        }
       </Wrapper>
     );
   }
 }
 
 HomePage.propTypes = {
-
+  content: React.PropTypes.arrayOf(React.PropTypes.object),
+  logout: React.PropTypes.func,
+  getContent: React.PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({

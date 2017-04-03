@@ -43,7 +43,7 @@ export default function createRoutes(store) {
       },
     }, {
       path: '/home',
-      name: 'homePage',
+      name: 'home',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
           import('containers/HomePage/reducer'),
