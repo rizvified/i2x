@@ -7,8 +7,6 @@
 import React from 'react';
 import { LocalForm, Control } from 'react-redux-form';
 
-import cover from '../../images/background.jpg';
-
 class LoginForm extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   handleSubmit(form) {
@@ -25,7 +23,6 @@ class LoginForm extends React.Component { // eslint-disable-line react/prefer-st
         <LocalForm className="form-horizontal login_form"
           onSubmit={(values) => this.handleSubmit(values)}
           onChange={() => this.handleChange()}
-          style={{"backgroundImage": cover}}
         >
             <div className="form-group">
               <div className="col-md-offset-4 col-md-4 col-xs-12">

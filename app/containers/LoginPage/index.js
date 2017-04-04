@@ -14,8 +14,6 @@ import { makeSelectError } from 'containers/App/selectors';
 import Wrapper from 'components/Wrapper';
 import LoginForm from 'components/LoginForm';
 
-import cover from '../../images/background.jpg';
-
 export class LoginPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
