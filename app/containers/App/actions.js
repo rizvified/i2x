@@ -4,6 +4,8 @@ import {
   LOG_OUT,
   SET_TOKEN,
   REMOVE_TOKEN,
+  SET_ERROR,
+  REMOVE_ERROR,
 } from './constants';
 
 export function logIn(username, password){
@@ -31,5 +33,19 @@ export function setToken(token){
 export function removeToken(){
   return {
     type: REMOVE_TOKEN,
+  }
+};
+
+export function setError(error){
+  return {
+    type: SET_ERROR,
+    error
+  }
+};
+
+
+export function removeError(){
+  return {
+    type: REMOVE_ERROR,
   }
 };

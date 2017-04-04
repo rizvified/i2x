@@ -18,7 +18,7 @@ class Wrapper extends React.Component { // eslint-disable-line react/prefer-stat
 }
 
 Wrapper.propTypes = {
-
+  children: React.PropTypes.node,
 };
 
 export default Wrapper;

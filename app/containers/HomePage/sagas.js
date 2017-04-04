@@ -1,14 +1,16 @@
-import { call, take, put, cancel, select, fork, takeLatest } from 'redux-saga/effects';
+import { call, take, put, select, fork } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
 
 import {
   FETCH_CONTENT,
   POPULATE_CONTENT,
-  REQUEST_SENT
+  REQUEST_SENT,
+  SET_FETCHING,
+  REMOVE_FETCHING,
   } from './constants';
 
 import { API_CONTENT } from 'containers/App/constants';
-import { makeSelectContacts } from './selectors';
+import { makeSelectToken } from 'containers/App/selectors';
 
 import request from 'utils/request';
 
@@ -18,7 +20,7 @@ let reply, payload = null;
 export function* contentLoad() {
     yield take(FETCH_CONTENT)
 
-    const token = localStorage.token;
+    const token = yield select(makeSelectToken());
     const requestURL = API_CONTENT;
     const requestObj = {
       method: 'GET',
@@ -28,6 +30,7 @@ export function* contentLoad() {
     };
 
     try {
+      yield put({ type: SET_FETCHING });
       reply = yield call(request, requestURL, requestObj);
     }
     catch(err) {
@@ -35,6 +38,7 @@ export function* contentLoad() {
     }
     finally {
       if(reply.results.length > 0) {
+        yield put({ type: REMOVE_FETCHING });
         payload = reply.results;
         yield put({ type: POPULATE_CONTENT, payload });
       } else {

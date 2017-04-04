@@ -12,18 +12,44 @@
  */
 
 import React from 'react';
+import { connect } from 'react-redux';
+import { push } from 'react-router-redux';
+import { createStructuredSelector } from 'reselect';
 
-export default class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+import { setToken } from './actions';
 
-  static propTypes = {
-    children: React.PropTypes.node,
+class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+
+  componentWillMount() {
+    if(localStorage.getItem('token')) {
+      this.props.redirectHome();
+      this.props.setToken(localStorage.getItem('token'));
+    } else {
+      this.props.redirectLogin();
+    }
   };
 
   render() {
     return (
-      <div>
+      <main>
         {React.Children.toArray(this.props.children)}
-      </div>
+      </main>
     );
   }
+
+  static propTypes = {
+    children: React.PropTypes.node,
+  };
 }
+
+const mapStateToProps = createStructuredSelector({});
+
+function mapDispatchToProps(dispatch) {
+  return {
+    setToken: (token) => dispatch(setToken(token)),
+    redirectHome: () => dispatch(push('/home')),
+    redirectLogin: () => dispatch(push('/')),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

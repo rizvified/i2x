@@ -5,10 +5,6 @@
 */
 
 import React from 'react';
-import { Link } from 'react-router';
-
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
 
 class Header extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
@@ -29,8 +25,8 @@ class Header extends React.Component { // eslint-disable-line react/prefer-state
     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul className="nav navbar-nav navbar-right">
         <li>
-          <button className="btn btn-primary logoutBtn" type="button" onClick={this.props.logout}>
-            Logout
+          <button className="btn btn-sm logoutBtn" type="button" onClick={this.props.logout}>
+            <i className="fa fa-power-off" /> Logout
           </button>
         </li>
       </ul>

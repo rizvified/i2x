@@ -13,6 +13,10 @@ const selectHomePageDomain = () => (state) => state.get('homePage');
    (substate) => substate.get('content').toJS()
  );
 
+ const makeSelectIsFetching = () => createSelector(
+   selectHomePageDomain(),
+   (substate) => substate.get('isFetching')
+ );
 
 /**
  * Default selector used by HomePage
@@ -27,4 +31,5 @@ export default makeSelectHomePage;
 export {
   selectHomePageDomain,
   makeSelectContent,
+  makeSelectIsFetching,
 };

@@ -17,11 +17,14 @@ import {
 import {
     SET_TOKEN,
     REMOVE_TOKEN,
+    SET_ERROR,
+    REMOVE_ERROR,
 } from './constants';
 
 // The initial state of the App
 const initialState = fromJS({
     token: null,
+    error: null,
 });
 
 function appReducer(state = initialState, action) {
@@ -30,6 +33,10 @@ function appReducer(state = initialState, action) {
             return state.set('token', action.token);
         case REMOVE_TOKEN:
             return state.set('token', null);
+        case SET_ERROR:
+            return state.set('error', action.error);
+        case REMOVE_ERROR:
+            return state.set('error', null);
         default:
             return state;
     }

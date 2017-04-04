@@ -1,12 +1,9 @@
 import {
-  take,
   call,
+  take,
   put,
-  select,
-  cancel,
   fork,
   race,
-  takeLatest
 } from 'redux-saga/effects';
 
 import {
@@ -15,6 +12,8 @@ import {
   GET_CONTENT,
   SET_TOKEN,
   REMOVE_TOKEN,
+  SET_ERROR,
+  REMOVE_ERROR,
 } from './constants';
 
 import { API_LOGIN } from './constants';
@@ -47,7 +46,7 @@ export function* loginFlow () {
           "password": password,
         })
     };
-    let token = null;
+    let token, error = null;
 
     let winner = yield race({
       auth: call(request, requestURL, requestObj),
@@ -56,13 +55,15 @@ export function* loginFlow () {
 
     if (winner.auth) {
       if (winner.auth.token) {
+        yield put({ type: REMOVE_ERROR });
         token = winner.auth.token;
         localStorage.setItem('token', token);
         yield put({ type: SET_TOKEN, token });
         yield put(push('/home'));
       }
-      else {
-        window.location.reload();
+      else if (winner.auth.non_field_errors){
+        error = winner.auth.non_field_errors;
+        yield put({ type: SET_ERROR, error });
       }
 
     } else if (winner.logout) {

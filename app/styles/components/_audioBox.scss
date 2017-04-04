@@ -1,40 +1,55 @@
 .audio_box {
     display: block;
     position: relative;
-    margin: 5px;
+    height: 285px;
+    overflow-y: scroll;
+    margin: 14px 0;
     padding: 5px;
-    border: 1px solid #e7e7e7;
+    border: 2px solid #B8CCC9;
 
     .details {
         padding: 5px;
 
         .header {
             display: inline-block;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
 
             .rating {
                 float: left;
-                font-size: 18px;
+                font-size: 20px;
+
+                .fa-star {
+                    color: $star-color;
+                }
             }
 
-            .duration {
-              font-weight: bold;
+            .date {
+                padding: 5px;
+
+                p {
+                    position: relative;
+                    margin: 0;
+                    font-style: italic;
+                }
             }
         }
 
         .transcript {
-            overflow: hidden;
-            text-overflow: ellipsis;
+            // overflow-y: scroll;
+            // text-overflow: ellipsis;
+            // border-bottom: 1px solid #e7e7e7;
+        }
+
+        .duration {
+            padding-bottom: 10px;
+            border-bottom: 1px solid $border-color;
         }
     }
 
-    .date {
-        padding: 5px;
-
-        p {
-          position: relative;
-          margin: 0;
-          font-style: italic;
+    .audio {
+        audio::-webkit-media-controls-volume-slider,
+        audio::-webkit-media-controls-volume-slider-container {
+            display: none;
         }
     }
 }
