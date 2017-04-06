@@ -35,6 +35,7 @@ class AudioBox extends React.Component { // eslint-disable-line react/prefer-sta
               </div>
             </div>
           </div>
+          <div className="scrollable">
           <div className="row no-margin">
             <p className="transcript">{data.final_script}</p>
           </div>
@@ -42,7 +43,8 @@ class AudioBox extends React.Component { // eslint-disable-line react/prefer-sta
               <p className="duration no-margin">
                 Duration: {duration} {duration > 1 && "minutes"} {duration < 2 && "minute"}
               </p>
-            </div>
+          </div>
+        </div>
           </section>
           <section className="audio">
             <audio controls>

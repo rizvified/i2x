@@ -13,6 +13,16 @@ const makeSelectError = () => createSelector(
   (globalState) => globalState.get('error')
 );
 
+const makeSelectUsername = () => createSelector(
+  selectGlobal,
+  (globalState) => globalState.get('username')
+);
+
+const makeSelectPassword = () => createSelector(
+  selectGlobal,
+  (globalState) => globalState.get('password')
+);
+
 const makeSelectLocationState = () => {
   let prevRoutingState;
   let prevRoutingStateJS;
@@ -33,4 +43,6 @@ export {
   makeSelectLocationState,
   makeSelectToken,
   makeSelectError,
+  makeSelectUsername,
+  makeSelectPassword,
 };

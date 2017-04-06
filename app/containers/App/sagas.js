@@ -3,6 +3,7 @@ import {
   take,
   put,
   fork,
+  select,
   race,
 } from 'redux-saga/effects';
 
@@ -14,9 +15,12 @@ import {
   REMOVE_TOKEN,
   SET_ERROR,
   REMOVE_ERROR,
+  REMOVE_PASSWORD,
+  REMOVE_USERNAME,
 } from './constants';
 
 import { API_LOGIN } from './constants';
+import { makeSelectUsername, makeSelectPassword } from './selectors';
 
 import { LOCATION_CHANGE } from 'react-router-redux';
 import { push } from 'react-router-redux';
@@ -24,17 +28,14 @@ import { push } from 'react-router-redux';
 import request from 'utils/request';
 
 
-export function* logOut() {
-    localStorage.removeItem('token');
-    yield put({ type: REMOVE_TOKEN });
-    yield put(push('/'));
-};
-
 export function* loginFlow () {
 
   while (true) {
     const data = yield take(LOG_IN);
-    const { username, password } = data;
+    const username = yield select(makeSelectUsername());
+    console.log(username);
+    const password = yield select(makeSelectPassword());
+    console.log(password);
     const requestURL = API_LOGIN;
     const requestObj = {
       method: 'POST',
@@ -60,6 +61,8 @@ export function* loginFlow () {
         localStorage.setItem('token', token);
         yield put({ type: SET_TOKEN, token });
         yield put(push('/home'));
+        yield put({ type: REMOVE_USERNAME });
+        yield put({ type: REMOVE_PASSWORD });
       }
       else if (winner.auth.non_field_errors){
         error = winner.auth.non_field_errors;
@@ -77,7 +80,9 @@ export function* loginFlow () {
 export function * logoutFlow () {
   while (true) {
     yield take(LOG_OUT)
-    yield call(logOut);
+    localStorage.removeItem('token');
+    yield put({ type: REMOVE_TOKEN });
+    yield put(push('/'));
   }
 }
 

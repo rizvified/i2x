@@ -19,16 +19,30 @@ import {
     REMOVE_TOKEN,
     SET_ERROR,
     REMOVE_ERROR,
+    SET_USERNAME,
+    SET_PASSWORD,
+    REMOVE_USERNAME,
+    REMOVE_PASSWORD,
 } from './constants';
 
 // The initial state of the App
 const initialState = fromJS({
+    username: '',
+    password: '',
     token: null,
     error: null,
 });
 
 function appReducer(state = initialState, action) {
     switch (action.type) {
+        case SET_USERNAME:
+            return state.set('username', action.username);
+        case REMOVE_USERNAME:
+            return state.set('username', '');
+        case SET_PASSWORD:
+            return state.set('password', action.password);
+        case REMOVE_PASSWORD:
+            return state.set('password', '');
         case SET_TOKEN:
             return state.set('token', action.token);
         case REMOVE_TOKEN:

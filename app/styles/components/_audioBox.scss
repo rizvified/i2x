@@ -2,11 +2,11 @@
     display: block;
     position: relative;
     height: 285px;
-    overflow-y: scroll;
     margin: 14px 0;
     padding: 5px;
     border: 2px solid #B8CCC9;
-
+    border-radius: 5px;
+    
     .details {
         padding: 5px;
 
@@ -34,15 +34,15 @@
             }
         }
 
-        .transcript {
-            // overflow-y: scroll;
-            // text-overflow: ellipsis;
-            // border-bottom: 1px solid #e7e7e7;
-        }
+        .scrollable {
+            height: 132px;
+            overflow-y: auto;
+            min-height: 190px;
 
-        .duration {
-            padding-bottom: 10px;
-            border-bottom: 1px solid $border-color;
+            .duration {
+                padding-bottom: 10px;
+                border-bottom: 1px solid $border-color;
+            }
         }
     }
 

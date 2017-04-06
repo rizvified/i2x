@@ -6,19 +6,49 @@ import {
   REMOVE_TOKEN,
   SET_ERROR,
   REMOVE_ERROR,
+  SET_USERNAME,
+  REMOVE_USERNAME,
+  SET_PASSWORD,
+  REMOVE_PASSWORD,
 } from './constants';
 
-export function logIn(username, password){
+export function logIn(){
   return {
     type: LOG_IN,
-    username,
-    password
   }
 };
 
 export function logOut(){
   return {
     type: LOG_OUT,
+  }
+};
+
+export function setUsername(username){
+  return {
+    type: SET_USERNAME,
+    username,
+  }
+};
+
+
+export function removeUsername(){
+  return {
+    type: REMOVE_USERNAME,
+  }
+};
+
+export function setPassword(password){
+  return {
+    type: SET_PASSWORD,
+    password,
+  }
+};
+
+
+export function removePassword(){
+  return {
+    type: REMOVE_PASSWORD,
   }
 };
 
