@@ -1,0 +1,17 @@
+.login_container {
+  height: 100vh;
+  background-image: url('../images/background.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  .overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .3);
+  }
+}

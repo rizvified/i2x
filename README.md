@@ -1,13 +1,16 @@
 # i2x Challenge
 
-This app uses the awesome https://github.com/react-boilerplate/react-boilerplate for the win!
+This app is deployed on Heroku: https://challenge-i2x.herokuapp.com/
 
 ## Quick start
 
 1. Clone this repo using `git clone https://github.com/rizvified/i2x.git`
-1. Run `npm install` to install dependencies
-1. Run `npm start` to start the development server
-   *At this point you can see the app at `http://localhost:3000`.*
+1. Run `yarn install` to install dependencies
+1. Run `yarn dev` to start the development server <br />
+   *At this point you can see the app at `http://localhost:8080`.*
+1. Run `yarn start` to start the production server
+1. Run `yarn test` to start tests
+
 
 Now you're ready to rumble!
 

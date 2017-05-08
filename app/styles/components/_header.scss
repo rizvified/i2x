@@ -8,6 +8,10 @@
             border: 1px solid $primary-color;
             color: $base-color;
 
+            .fa-power-off {
+              padding-right: 5px;
+            }
+
             &:hover, &:visited, &:active {
                 background-color: #00ab6b;
                 border: 1px solid #00ab6b;

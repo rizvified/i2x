@@ -6,5 +6,5 @@ function parseJSON(response) {
 
 export default function request(url, options) {
   return fetch(url, options)
-    .then(parseJSON)
+    .then(parseJSON);
 }

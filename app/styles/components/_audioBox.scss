@@ -1,12 +1,13 @@
 .audio_box {
     display: block;
     position: relative;
-    height: 285px;
+    height: 295px;
     margin: 14px 0;
     padding: 5px;
     border: 2px solid #B8CCC9;
     border-radius: 5px;
-    
+    z-index: 99;
+
     .details {
         padding: 5px;
 
@@ -37,16 +38,17 @@
         .scrollable {
             height: 132px;
             overflow-y: auto;
-            min-height: 190px;
+            min-height: 201px;
 
             .duration {
                 padding-bottom: 10px;
-                border-bottom: 1px solid $border-color;
+                // border-bottom: 1px solid $border-color;
             }
         }
     }
 
     .audio {
+          border-top: 1px solid $border-color;
         audio::-webkit-media-controls-volume-slider,
         audio::-webkit-media-controls-volume-slider-container {
             display: none;
