@@ -11,7 +11,7 @@ This app is deployed on Heroku: https://challenge-i2x.herokuapp.com/
 1. Run `yarn start` to start the production server
 1. Run `yarn test` to start tests
 
-username: challenge@i2x  <br />
+username: challenge@i2x.ai  <br />
 password: pass123
 
 Now you're ready to rumble!

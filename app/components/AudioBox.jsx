@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment-timezone';
 
-function AudioBox(props) {
+const AudioBox = (props) => {
   const { data } = props;
   const duration = moment(data.duration).second();
   const date = moment(data.created).tz('Europe/Berlin').format('MMMM Do YYYY');
@@ -50,10 +50,10 @@ function AudioBox(props) {
       </div>
     </div>
   );
-}
+};
 
 AudioBox.propTypes = {
-  data: React.PropTypes.object,
+  data: React.PropTypes.object.isRequired,
 };
 
 export default AudioBox;

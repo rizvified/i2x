@@ -2,37 +2,29 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 
-import Form from '../components/Form.jsx';
+import Form from './Form.jsx';
 
 import { API_LOGIN } from '../utils/constants';
 import request from '../utils/request';
 
-class Login extends Component { // eslint-disable-line react/prefer-stateless-function
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: '',
-      password: '',
-      error: '',
-    };
-
-    this.handleUsername = this.handleUsername.bind(this);
-    this.handlePassword = this.handlePassword.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+class Login extends Component {
+  state = {
+    username: '',
+    password: '',
+    error: '',
   }
 
-
-  handleUsername(event) {
+  handleUsername = (event) => {
     this.setState({ username: event.target.value });
     this.setState({ error: '' });
   }
 
-  handlePassword(event) {
+  handlePassword = (event) => {
     this.setState({ password: event.target.value });
     this.setState({ error: '' });
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
     const requestURL = API_LOGIN;
     const requestObj = {

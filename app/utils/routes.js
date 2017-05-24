@@ -1,6 +1,6 @@
-import App from '../containers/App.jsx';
-import Home from '../containers/Home.jsx';
-import Login from '../containers/Login.jsx';
+import App from '../components/App.jsx';
+import Home from '../components/Home.jsx';
+import Login from '../components/Login.jsx';
 
 
 const routes = {

@@ -1,40 +1,38 @@
 import React from 'react';
 
-function Form(props) {
-  return (
-    <form onSubmit={ props.handleSubmit } className='form-horizontal login_form'>
-      <div className='form-group'>
-        <div className='col-md-offset-4 col-md-4 col-xs-12'>
-          <input className='form-control' type='text' id='username' value={ props.username } onChange={ props.handleUsername } placeholder='Username' required />
-        </div>
+const Form = ({ username, password, error, handleSubmit, handleUsername, handlePassword }) => (
+  <form onSubmit={ handleSubmit } className='form-horizontal login_form'>
+    <div className='form-group'>
+      <div className='col-md-offset-4 col-md-4 col-xs-12'>
+        <input className='form-control' type='text' id='username' value={ username } onChange={ handleUsername } placeholder='Username' required />
       </div>
-      <div className='form-group'>
-        <div className='col-md-offset-4 col-md-4 col-xs-12'>
-          <input className='form-control' type='password' id='password' value={ props.password } onChange={ props.handlePassword } placeholder='Password' required />
-        </div>
+    </div>
+    <div className='form-group'>
+      <div className='col-md-offset-4 col-md-4 col-xs-12'>
+        <input className='form-control' type='password' id='password' value={ password } onChange={ handlePassword } placeholder='Password' required />
       </div>
-      <div className='form-group'>
-        <div className='col-md-offset-4 col-md-4 col-xs-12'>
-          <button className='btn btn-block btn-default submit submitBtn' type='submit'>Log in</button>
-          {
-                 props.error !== '' &&
+    </div>
+    <div className='form-group'>
+      <div className='col-md-offset-4 col-md-4 col-xs-12'>
+        <button className='btn btn-block btn-default submit submitBtn' type='submit'>Log in</button>
+        {
+                 error !== '' &&
                  <p className='login_error no-margin'>
-                   {props.error}
+                   {error}
                  </p>
                }
-        </div>
       </div>
-    </form>
-  );
-}
+    </div>
+  </form>
+);
 
 Form.propTypes = {
-  username: React.PropTypes.string,
-  password: React.PropTypes.string,
-  error: React.PropTypes.string,
-  handleUsername: React.PropTypes.func,
-  handlePassword: React.PropTypes.func,
-  handleSubmit: React.PropTypes.func,
+  username: React.PropTypes.string.isRequired,
+  password: React.PropTypes.string.isRequired,
+  error: React.PropTypes.string.isRequired,
+  handleUsername: React.PropTypes.func.isRequired,
+  handlePassword: React.PropTypes.func.isRequired,
+  handleSubmit: React.PropTypes.func.isRequired,
 };
 
 export default Form;

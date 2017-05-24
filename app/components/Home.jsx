@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 
-import Header from '../components/Header.jsx';
-import Content from '../components/Content.jsx';
+import Header from './Header.jsx';
+import AudioBox from './AudioBox.jsx';
 
 import { API_CONTENT } from '../utils/constants';
 import request from '../utils/request';
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      content: null,
-    };
-    this.logout = this.logout.bind(this);
+  state = {
+    content: null,
   }
 
   componentDidMount() {
@@ -34,7 +30,7 @@ class Home extends Component {
     });
   }
 
-  logout() {
+  logout = () => {
     localStorage.removeItem('i2x_token');
     browserHistory.push('/');
   }
@@ -46,7 +42,11 @@ class Home extends Component {
         <Header logout={ this.logout } />
         {
           data !== null &&
-          <Content data={ this.state.content } />
+          <div className="content">
+            {
+              data.map((content, index) => <AudioBox data={ content } key={ index } />)
+            }
+          </div>
         }
       </div>
     );
