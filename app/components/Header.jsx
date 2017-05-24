@@ -29,7 +29,7 @@ const Header = ({ logout }) => (
 
 
 Header.propTypes = {
-  logout: React.PropTypes.func.isRequired,
+  logout: React.PropTypes.func,
 };
 
 export default Header;

@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
 
-import Login from '../containers/Login.jsx';
+import Login from '../components/Login.jsx';
 import Form from '../components/Form.jsx';
 
 describe('<Login />', () => {

@@ -27,12 +27,12 @@ const Form = ({ username, password, error, handleSubmit, handleUsername, handleP
 );
 
 Form.propTypes = {
-  username: React.PropTypes.string.isRequired,
-  password: React.PropTypes.string.isRequired,
-  error: React.PropTypes.string.isRequired,
-  handleUsername: React.PropTypes.func.isRequired,
-  handlePassword: React.PropTypes.func.isRequired,
-  handleSubmit: React.PropTypes.func.isRequired,
+  username: React.PropTypes.string,
+  password: React.PropTypes.string,
+  error: React.PropTypes.string,
+  handleUsername: React.PropTypes.func,
+  handlePassword: React.PropTypes.func,
+  handleSubmit: React.PropTypes.func,
 };
 
 export default Form;

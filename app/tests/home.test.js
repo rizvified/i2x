@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme';
 import { expect } from 'chai';
 import sinon from 'sinon';
 
-import Home from '../containers/Home.jsx';
+import Home from '../components/Home.jsx';
 import Header from '../components/Header.jsx';
 
 describe('<Home />', () => {

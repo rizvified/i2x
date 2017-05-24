@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme';
 import { expect } from 'chai';
 import sinon from 'sinon';
 
-import App from '../containers/App.jsx';
+import App from '../components/App.jsx';
 
 describe('<App />', () => {
   beforeAll(() => {

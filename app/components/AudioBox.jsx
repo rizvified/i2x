@@ -53,7 +53,7 @@ const AudioBox = (props) => {
 };
 
 AudioBox.propTypes = {
-  data: React.PropTypes.object.isRequired,
+  data: React.PropTypes.object,
 };
 
 export default AudioBox;
