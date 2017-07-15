@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { expect } from 'chai';
 
-import AudioBox from '../components/AudioBox.jsx';
+import AudioBox from '../app/components/AudioBox.jsx';
 
 describe('<AudioBox />', () => {
   const data = {

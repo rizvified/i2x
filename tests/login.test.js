@@ -2,8 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
 
-import Login from '../components/Login.jsx';
-import Form from '../components/Form.jsx';
+import Login from '../app/components/Login.jsx';
+import Form from '../app/components/Form.jsx';
 
 describe('<Login />', () => {
   beforeAll(() => {

@@ -9,7 +9,8 @@
     "start": "node server",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./webpack/webpack.dev.js --hot --inline",
     "build": "cross-env NODE_ENV=production webpack --config ./webpack/webpack.prod.js --progress --colors",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   },
   "dependencies": {
     "express": "^4.15.2",
@@ -44,6 +45,7 @@
     "moment-timezone": "^0.5.13",
     "node-sass": "^4.5.2",
     "react-addons-test-utils": "^15.5.1",
+    "react-test-renderer": "^15.6.1",
     "sass-loader": "^3.2.0",
     "sinon": "^2.1.0",
     "style-loader": "^0.16.1",

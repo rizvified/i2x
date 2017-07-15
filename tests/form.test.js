@@ -3,7 +3,7 @@ import { shallow, mount, render } from 'enzyme';
 import { expect } from 'chai';
 import sinon from 'sinon';
 
-import Form from '../components/Form.jsx';
+import Form from '../app/components/Form.jsx';
 
 describe('<Form />', () => {
   const foo = 'foo';
